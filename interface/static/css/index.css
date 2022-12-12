@@ -1,0 +1,62 @@
+* { padding: 0; margin: 0; }
+html, body, #fullheight {
+    min-height: 99% !important;
+    height: 99%;
+}
+
+body {
+    max-height: 940px;
+    max-width: 600px;
+    min-height: 500px;
+    min-width: 120px;
+    margin: 0 auto 0 auto;
+}
+
+#screen-top {
+    border: .2em solid black;
+    width: auto;
+    min-height: 57%;
+}
+
+#screen-bottom {
+    border: .2em solid black;
+    height: 43%;
+}
+
+#input {
+    display: flex;
+    margin: 1em 0 1em 0;
+}
+
+.field {
+    width: 1em;
+    height: 1em;
+    border: 1px solid purple;
+    margin: auto;
+    # font-size: 12dvw;
+    font-size: 3em;
+    padding: .2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin-top: .3em;
+}
+
+.keyboard-key {
+    font-size: 2.3em;
+    margin: 0 .15em 0 0.15em;
+    border: 1px solid black;
+    padding: .2em;
+    background-color: #a8c4c7;
+    color: black;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.keyboard-key:hover {
+    cursor: pointer;
+}
