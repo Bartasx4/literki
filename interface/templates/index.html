@@ -73,12 +73,17 @@
             var predef_height = 1280;
             var predef_width = 440;
             var scale_height = (height / predef_height) * 0.99;
-            var scale_width = predef_width * (height / predef_height);
+            var scale_width = (width / predef_width) * 0.99;
             var new_height = predef_height * scale_height;
-            var screen_top = Math.round(.55 * new_height) + "px";
-            var screen_bottom = Math.round(.41 * new_height) + "px";
-            $("#screen-top").css("min-height", screen_top);
-            $("#screen-bottom").css("min-height", screen_bottom);
+            var new_width = predef_width * scale_width;
+            var screen_top_height = Math.round(.55 * new_height) + "px";
+            var screen_bottom_height = Math.round(.41 * new_height) + "px";
+            var screen_top_width = Math.round(.99 * new_width) + "px";
+            var screen_bottom_width = Math.round(.99 * new_width) + "px";
+            $("#screen-top").css("min-height", screen_top_height);
+            $("#screen-bottom").css("min-height", screen_bottom_height);
+            $("#screen-top").css("min-height", screen_top_width);
+            $("#screen-bottom").css("min-height", screen_bottom_width);
         }
 
         $(window).resize(function() {
