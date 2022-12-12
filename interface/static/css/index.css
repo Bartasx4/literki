@@ -1,26 +1,36 @@
-* { padding: 0; margin: 0; }
+* {
+    padding: 0;
+    margin: 0;
+    /* prevent select */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+ }
+
 html, body, #fullheight {
     min-height: 99% !important;
     height: 99%;
+    overflow: hidden;
 }
 
 body {
-    max-height: 940px;
+    /* max-height: 940px;
     max-width: 600px;
     min-height: 500px;
-    min-width: 120px;
-    margin: 0 auto 0 auto;
+    min-width: 120px; */
+    width: 100vmin;
+    margin: auto;
 }
 
 #screen-top {
     border: .2em solid black;
     width: auto;
-    min-height: 57%;
+    min-height: 55vh;
 }
 
 #screen-bottom {
     border: .2em solid black;
-    height: 43%;
+    height: 41vh;
 }
 
 #input {
@@ -48,7 +58,7 @@ body {
 }
 
 .keyboard-key {
-    font-size: 2.3em;
+    font-size: calc(1.4em + 1.4vmin);
     margin: 0 .15em 0 0.15em;
     border: 1px solid black;
     padding: .2em;
