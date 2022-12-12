@@ -35,6 +35,7 @@
     </div>
 
     <script>
+        calculate_view();
         // 846, 449  - tel
 
         // Desktop
@@ -65,6 +66,24 @@
             guess_word.push(guess_field);
             console.log(guess_field);
         }
+
+        function calculate_view() {
+            var height = window.innerHeight;
+            var width = window.innerWidth;
+            var predef_height = 1280;
+            var predef_width = 440;
+            var scale_height = (height / predef_height) * 0.99;
+            var scale_width = predef_width * (height / predef_height);
+            var new_height = predef_height * scale_height;
+            var screen_top = Math.round(.55 * new_height) + "px";
+            var screen_bottom = Math.round(.41 * new_height) + "px";
+            $("#screen-top").css("min-height", screen_top);
+            $("#screen-bottom").css("min-height", screen_bottom);
+        }
+
+        $(window).resize(function() {
+            calculate_view();
+        });
 
         function alert_view() {
             alert('Inner: ' + window.innerHeight + ', ' + window.innerWidth + '\n' +

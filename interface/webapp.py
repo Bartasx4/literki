@@ -13,7 +13,7 @@ class WebApp:
         self.app.add_url_rule('/', '', self.index, methods=['GET', 'POST'])
 
     def start(self):
-        return self.app.run(host='10.200.18.177', debug=True)
+        return self.app.run(debug=True)
 
     def index(self):
         name = request.args.get("name", "World")
