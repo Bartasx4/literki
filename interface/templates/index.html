@@ -12,42 +12,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-    <div id="screen-top">
-        <div id="guess-screen">
+    <div id="game-screen">
+        <div id="screen-top">
+            <div id="guess-screen">
 
+            </div>
         </div>
-    </div>
-    <div id="screen-bottom">
-        <div id="input">
-            {% for field in range(word_length) %}
-                <div id="field_{{field}}" class="field"></div>
-            {% endfor %}
-        </div>
-        <div id="keyboard">
-            {% for row in keyboard_layout %}
-                <div class="keyboard-row">
-                {% for key in row %}
-                    <div class="keyboard-key" id="key_{{key}}" onclick="key_click('{{key}}');">{{key}}</div>
+        <div id="screen-bottom">
+            <div id="input">
+                {% for field in range(word_length) %}
+                    <div id="field_{{field}}" class="field"></div>
                 {% endfor %}
-                </div>
-            {% endfor %}
+            </div>
+            <div id="keyboard">
+                {% for row in keyboard_layout %}
+                    <div class="keyboard-row">
+                    {% for key in row %}
+                        <div class="keyboard-key" id="key_{{key}}" onclick="key_click('{{key}}');">{{key}}</div>
+                    {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 
+    <script src="../static/js/index.js"></script>
     <script>
-        calculate_view();
-        // 846, 449  - tel
-
-        // Desktop
-        // Inner: 959, 521
-        // Outer: 1047, 945
-        // ViewP: 959, 521
-
-        // Tel
-        // Inner: 846, 449
-        // Outer: 723, 384
-        // ViewP: 845, 449
-
         var word_length = {{word_length}};
         var max_tries = {{max_tries}};
         var keyboard_status = {};
@@ -55,46 +45,6 @@
         {% for key in keyboard_status %}
             keyboard_status["{{key}}"] = "{{keyboard_status[key]}}";
         {% endfor %}
-
-        function key_click(key) {
-            if (guess_word.length >= word_length) {
-                return 0;
-            }
-            console.log("field_" + guess_word.length);
-            var guess_field = document.getElementById('field_' + String(guess_word.length));
-            guess_field.innerHTML = key;
-            guess_word.push(guess_field);
-            console.log(guess_field);
-        }
-
-        function calculate_view() {
-            var height = window.innerHeight;
-            var width = window.innerWidth;
-            var predef_height = 1280;
-            var predef_width = 440;
-            var scale_height = (height / predef_height) * 0.99;
-            var scale_width = (width / predef_width) * 0.99;
-            var new_height = predef_height * scale_height;
-            var new_width = predef_width * scale_width;
-            var screen_top_height = Math.round(.55 * new_height) + "px";
-            var screen_bottom_height = Math.round(.41 * new_height) + "px";
-            var screen_top_width = Math.round(.99 * new_width) + "px";
-            var screen_bottom_width = Math.round(.99 * new_width) + "px";
-            $("#screen-top").css("min-height", screen_top_height);
-            $("#screen-bottom").css("min-height", screen_bottom_height);
-            $("#screen-top").css("min-height", screen_top_width);
-            $("#screen-bottom").css("min-height", screen_bottom_width);
-        }
-
-        $(window).resize(function() {
-            calculate_view();
-        });
-
-        function alert_view() {
-            alert('Inner: ' + window.innerHeight + ', ' + window.innerWidth + '\n' +
-                  'Outer: ' + window.outerHeight + ', ' + window.outerWidth + '\n' +
-                  'Vierport: ' + window.visualViewport.height + ', ' + window.visualViewport.width);
-        }
     </script>
 
 </body>

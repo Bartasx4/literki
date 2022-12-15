@@ -10,8 +10,8 @@
  }
 
 html, body, #fullheight {
-    min-height: 99% !important;
-    height: 99%;
+    min-height: 100% !important;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -19,33 +19,36 @@ body {
     /* max-height: 940px;
     max-width: 600px;
     min-height: 500px;
-    min-width: 120px; */
+    min-width: 120px;
     width: 100vmin;
+    margin: auto; */
+}
+
+#game-screen {
     margin: auto;
 }
 
 #screen-top {
     border: .2em solid black;
     width: auto;
-    min-height: 55vh;
+    height: 60%;
 }
 
 #screen-bottom {
     border: .2em solid black;
-    height: 41vh;
+    height: 40%;
 }
 
 #input {
     display: flex;
-    margin: 1em 0 1em 0;
+    margin: 1em 0 2em 0;
 }
 
 .field {
-    width: 1em;
-    height: 1em;
+    width: 1.2em;
+    height: 1.2em;
     border: 1px solid purple;
     margin: auto;
-    # font-size: 12dvw;
     font-size: 3em;
     padding: .2em;
     display: flex;
@@ -60,15 +63,22 @@ body {
 }
 
 .keyboard-key {
-    font-size: calc(1.4em + 1.4vmin);
+    font-size: 2em;
     margin: 0 .15em 0 0.15em;
     border: 1px solid black;
     padding: .2em;
     background-color: #a8c4c7;
     color: black;
     box-shadow: 1px 1px 1px 1px black;
+    width: .85em;
+    height: 1.2em;
+    text-align: center;
 }
 
 .keyboard-key:hover {
     cursor: pointer;
+}
+
+#key-enter, #key-back {
+
 }

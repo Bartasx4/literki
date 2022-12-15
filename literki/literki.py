@@ -29,6 +29,10 @@ class Literki:
         return self._keyboard.layout
 
     @property
+    def keyboard_status(self):
+        return self._keyboard.status
+
+    @property
     def length(self):
         return self._length
 

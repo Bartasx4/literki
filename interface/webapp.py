@@ -21,5 +21,5 @@ class WebApp:
                                word_length=self.game.length,
                                max_tries=self.game.max_tries,
                                keyboard_layout=self.game.keyboard_layout,
-                               keyboard_status=self.game.keyboard)
+                               keyboard_status=self.game.keyboard.status)
         # return f'Hello, {escape(name)}!'

@@ -26,6 +26,10 @@ class Keyboard:
         return status
 
     @property
+    def status(self):
+        return self._keyboard
+
+    @property
     def layout(self):
         return self._layout
 
@@ -58,6 +62,9 @@ class Keyboard:
             self._keyboard[char] = Status.USED
         elif current_status == Status.DEFAULT or current_status == Status.IN_WORD:
             self._keyboard[char] = status
+
+    def __repr__(self):
+        return str(self._keyboard)
 
     def __iter__(self):
         return self._keyboard.__iter__()
